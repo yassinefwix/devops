@@ -4,7 +4,8 @@ node {
     // import scripts
     def rootDir = pwd()
     def dockerUtils = load("${rootDir}@script/docker-utils.groovy")
-
+    
+    final MAINTAINER = 'yassine'
     // Docker Registry
     final DOCKER_REGISTRY = 'registry.hub.docker.com'
     final DOCKER_REGISTRY_URL = 'https://'+ DOCKER_REGISTRY
