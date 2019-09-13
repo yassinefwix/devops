@@ -3,8 +3,8 @@ node {
     
     // import scripts
     def rootDir = pwd()
-    def dbUtils = 'db-utils.groovy")
-    def dockerUtils = "docker-utils.groovy")
+    def dbUtils = load("db-utils.groovy")
+    def dockerUtils = load("db-utils.groovy")
 
     // Docker Registry
     final DOCKER_REGISTRY = 'registry.hub.docker.com'
