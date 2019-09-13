@@ -31,10 +31,10 @@ node {
 
         // remove previous containers if needed
         if (containerWebFrontId != null) {
-            dockerUtils.stopAndRemoveContainer(containerWebFrontId)
+            //dockerUtils.stopAndRemoveContainer(containerWebFrontId)
         }
         if (containerWebBackId != null) {
-            dockerUtils.stopAndRemoveContainer(containerWebBackId)
+            //dockerUtils.stopAndRemoveContainer(containerWebBackId)
         }
 
         // start new containers (web back & front)
