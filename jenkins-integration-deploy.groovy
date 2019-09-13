@@ -26,17 +26,16 @@ node {
     stage("WEB front & back containers deploy") {
 
         // find containers IDs
-        def containerWebFrontId = dockerUtils.findContainerIdByName(WEB_FRONT_NAME)
+        def containerWebFrontId = dockerUtils.findContainerIdByName('/front')
         def containerWebBackId = dockerUtils.findContainerIdByName(WEB_BACK_NAME)
 
         // remove previous containers if needed
         if (containerWebFrontId != null) {
-            //dockerUtils.stopAndRemoveContainer(containerWebFrontId)
+            dockerUtils.stopAndRemoveContainer(containerWebFrontId)
         }
         if (containerWebBackId != null) {
             //dockerUtils.stopAndRemoveContainer(containerWebBackId)
         }
-
         // start new containers (web back & front)
         // dockerUtils.pullAndRunImage(DOCKER_REGISTRY, MAINTAINER, WEB_BACK_NAME, WEB_BACK_NAME, 'latest', "--network ${NETWORK_FRONT} --network ${NETWORK_BACK} -p ${WEB_BACK_PORT}:80 -e PLATFORM=${PLATEFORM} -v ${IMAGES_VOLUME}:/var/www/f2m_lease/web/static  -v /home/f2ml/ci-phpunit:/var/www/f2m_lease/web/ci") // -v ./docker/logs/nginx_back/:/var/log/nginx -v ./docker/logs/php-fpm_back/:/var/log/php-fpm
         // dockerUtils.pullAndRunImage(DOCKER_REGISTRY, MAINTAINER, WEB_FRONT_NAME, WEB_FRONT_NAME, 'latest', "--network ${NETWORK_FRONT} --network ${NETWORK_BACK} -p ${WEB_FRONT_PORT}:80 -e PLATFORM=${PLATEFORM} -v ${IMAGES_VOLUME}:/var/www/f2m_lease/dist/web/static") // -v ./docker/logs/apache2_front/:/var/log/apache2
