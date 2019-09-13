@@ -20,13 +20,6 @@ node {
 
     stage("WEB front & back containers deploy") {
 
-        // user validation for code update
-        if (IS_UPDATE) {
-            timeout(time: 5) {
-                input 'WARNING : Are you sure to /!\\ UPDATE /!\\ F2ML web front & back containers ? They will be deleted, but the database will remain.';
-            }
-        }
-
         // find containers IDs
         def containerWebFrontId = dockerUtils.findContainerIdByName(WEB_FRONT_NAME)
         def containerWebBackId = dockerUtils.findContainerIdByName(WEB_BACK_NAME)
