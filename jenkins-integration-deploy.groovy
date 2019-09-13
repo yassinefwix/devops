@@ -5,13 +5,13 @@ node {
     def rootDir = pwd()
     def dockerUtils = load("${rootDir}@script/docker-utils.groovy")
     
-    final MAINTAINER = 'yassine'
+    final MAINTAINER = 'geekfive'
     // Docker Registry
     final DOCKER_REGISTRY = 'registry.hub.docker.com'
     final DOCKER_REGISTRY_URL = 'https://'+ DOCKER_REGISTRY
     final DOCKER_REGISTRY_CREDENTIALS = 'dockerHub'
 
-    final WEB_FRONT_NAME = "f2ml-integration-web-front"
+    final WEB_FRONT_NAME = "front"
     final WEB_BACK_NAME = "f2ml-integration-web-back"
 
     // networks
