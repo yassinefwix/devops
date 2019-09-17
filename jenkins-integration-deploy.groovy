@@ -47,7 +47,7 @@ node {
         
         docker.image("mongo").run("--restart=unless-stopped --hostname mongo --network devops-net --name integ-mongo -d -p 27017:27017 -v ~/data:/data/db ");
         
-        dockerUtils.pullAndRunImage(DOCKER_REGISTRY, MAINTAINER, WEB_FRONT_NAME, WEB_FRONT_NAME, 'latest','-p 8002:8002 8000:8000 --network devops-net')        
+        dockerUtils.pullAndRunImage(DOCKER_REGISTRY, MAINTAINER, WEB_FRONT_NAME, WEB_FRONT_NAME, 'latest','-p 8002:8002 -p 8000:8000 --network devops-net')        
     }
    
 
