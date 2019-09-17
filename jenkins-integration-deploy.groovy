@@ -24,7 +24,7 @@ node {
     //final IMAGES_VOLUME = '/home/f2ml/web/static'
 
     stage("WEB front & back containers deploy") {
-
+        sh "docker network create devops-net"
         // find containers IDs
         def containerWebFrontId = dockerUtils.findContainerIdByName('/front')
         def containerWebBackId = dockerUtils.findContainerIdByName(WEB_BACK_NAME)
