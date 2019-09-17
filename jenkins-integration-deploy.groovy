@@ -32,6 +32,7 @@ node {
         // remove previous containers if needed
         if (containerWebFrontId != null) {
             dockerUtils.stopAndRemoveContainer(containerWebFrontId)
+            dockerUtils.stopAndRemoveContainer("integ-mongo")
         }
         if (containerWebBackId != null) {
             //dockerUtils.stopAndRemoveContainer(containerWebBackId)
@@ -43,6 +44,8 @@ node {
         // start new containers (web back & front)
         // dockerUtils.pullAndRunImage(DOCKER_REGISTRY, MAINTAINER, WEB_BACK_NAME, WEB_BACK_NAME, 'latest', "--network ${NETWORK_FRONT} --network ${NETWORK_BACK} -p ${WEB_BACK_PORT}:80" )
         dockerUtils.pullAndRunImage(DOCKER_REGISTRY, MAINTAINER, WEB_FRONT_NAME, WEB_FRONT_NAME, 'latest','-p 8000:8000 ')
+        sh "docker pull mongo";
+        docker.image("mongo").run("--restart=unless-stopped --hostname mongo --name integ-mongo -d -p 27017:27017 -v ~/data:/data/db ");
     }
    
 
