@@ -15,10 +15,7 @@ node {
     final WEB_FRONT_PORT = '82'
     final WEB_BACK_PORT = '81'
 
-    // volumes
-    //final IMAGES_VOLUME = '/home/f2ml/web/static'
-
-    stage("WEB front & back containers deploy") {
+    stage("WEB front & API-mongo containers deploy") {
 
         // user validation for code update
         if (IS_UPDATE) {
